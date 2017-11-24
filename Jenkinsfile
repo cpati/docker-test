@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     parameters {
-        string(name: 'app', defaultValue: 'testapp/docker-test', description: 'docker app name')
+        string(name: 'app', defaultValue: 'testapp/docker-test', description: 'docker application name')
     }
 
     stages {
