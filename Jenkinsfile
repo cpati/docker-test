@@ -15,13 +15,13 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                dockerProcess=`docker ps|grep $app|awk "{print $1}"`;
+                dockerProcess=`docker ps|grep testapp/docker-test|awk "{print $1}"`;
 				if [ -n "$dockerProcess" ]
 				then
 					docker stop $dockerProcess	
 					echo "docker process "$dockerProcess" stopped"
 				fi
-				docker run -p 5050:8080 -t $app &
+				docker run -p 5050:8080 -t testapp/docker-test &
                 '''
             }
         }
