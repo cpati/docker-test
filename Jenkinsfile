@@ -19,7 +19,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                dockerProcess=`docker ps|grep $app|awk "{print $1}"`;
+                dockerProcess=`docker ps|grep $app|awk \'{print $1}\'`;
 				if [ -n "$dockerProcess" ]
 				then
 					docker stop $dockerProcess	
